@@ -1,0 +1,5 @@
+loading results from results/eot_agentformer/results/epoch_0045/test/samples/
+loading GT from datasets/EOT_split_preprocessed/test
+
+
+number of sequences to evaluate is 262

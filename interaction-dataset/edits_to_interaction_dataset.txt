@@ -1,0 +1,11 @@
+
+Edits to interaction dataset gitub files
+
+1. main_visualize_data.py:
+              - at line 121, lanelet_map_file name is parsed differently
+              - at line 127, track_file_name is parsed differently
+
+2. dataset_reader.py:
+              - to class key_num, added 1 to every attribute as new attribute case_id is present in .csv file provided
+              - at line 39, sorted csv file based on track_id or else assertion error
+

@@ -1,0 +1,1 @@
+trajectron-plus-plus-1 : state variable at both encoder and GRU

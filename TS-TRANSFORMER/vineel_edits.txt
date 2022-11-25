@@ -1,0 +1,3 @@
+with state variable on EOT dataset (modified data reading similar to SGAN)
+
+state variable at CVAE past encoder(both) only

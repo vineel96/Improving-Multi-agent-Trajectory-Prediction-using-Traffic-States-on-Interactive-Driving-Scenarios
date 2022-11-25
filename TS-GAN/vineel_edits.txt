@@ -1,0 +1,1 @@
+sgan-1 : state variable inserted between pooling module and decoder
