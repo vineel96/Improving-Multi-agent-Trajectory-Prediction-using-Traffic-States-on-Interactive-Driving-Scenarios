@@ -34,4 +34,7 @@ This repo consists of Three different base architectures:
 - Transformer based model
   - TS-TRANSFORMER folder includes required files to train and evaluate traffic state incorporated Transformer
 ## Acknowledgment
-This work uses datassets
+This repo uses base codes with modifications from the following methods:
+[Social-GAN](https://github.com/agrimgupta92/sgan),
+[Trajectron++](https://github.com/StanfordASL/Trajectron-plus-plus),
+[AgentFormer](https://github.com/Khrylx/AgentFormer)
