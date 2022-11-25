@@ -15,8 +15,8 @@ Adversarial Network-based (TS-GAN), and Conditional Variational Autoencoder-base
 trajectories than the vanilla models.TS-Transformer produces state-of-the-art results on
 two challenging interactive trajectory prediction datasets, namely, Eye-on-Traffic
 (EOT), and INTERACTION.Our qualitative analysis shows that traffic state-based
-models have better aligned trajectories to the ground truth
-
+models have better aligned trajectories to the ground truth<br /><br />
+**This work is under review at IEEE Robotics and Automation Letters (RAL)**
 ## Datasets
 ### EyeonTraffic(EoT) Dataset
 Preprocessed EoT datasets are available in this repository, under EOT_split.
