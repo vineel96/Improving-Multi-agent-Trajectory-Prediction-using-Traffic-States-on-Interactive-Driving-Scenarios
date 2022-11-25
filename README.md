@@ -33,6 +33,9 @@ This repo consists of Three different base architectures:
   - TS-GAN folder includes required files to train and evaluate traffic state incorporated GAN
 - Transformer based model
   - TS-TRANSFORMER folder includes required files to train and evaluate traffic state incorporated Transformer
+## Ablation Studies
+To know the efficacy of traffic state , we do ablation studies by incorporating traffic states at different parts of architecture. The results and comparisions can be
+found in research paper.
 ## Acknowledgment
 This repo uses base codes with modifications from the following methods:
 [Social-GAN](https://github.com/agrimgupta92/sgan),
