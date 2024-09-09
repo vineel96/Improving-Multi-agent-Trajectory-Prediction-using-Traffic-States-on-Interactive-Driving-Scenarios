@@ -1,0 +1,446 @@
+The matrices 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G in Winograd convolution are derived based on the mathematical structure of the convolution process and factorization of polynomials. These matrices depend on the configuration 
+𝐹
+(
+𝑚
+×
+𝑚
+,
+𝑟
+×
+𝑟
+)
+F(m×m,r×r), where 
+𝑚
+×
+𝑚
+m×m is the size of the output tile, and 
+𝑟
+×
+𝑟
+r×r is the size of the convolution kernel. Here's how they are calculated for a given configuration, such as 
+𝐹
+(
+2
+×
+2
+,
+4
+×
+4
+)
+F(2×2,4×4).
+
+1. Overview of Winograd Convolution
+Winograd's minimal filtering algorithm is based on polynomial factorization and the Chinese Remainder Theorem. The goal is to transform the inputs and kernel into a space where the number of multiplications is minimized. The convolution problem is reduced to a series of polynomial multiplications, which is why the transformation matrices come into play.
+
+2. Polynomial Construction and Factorization
+The construction of matrices 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G begins with choosing polynomials that define the Winograd algorithm's structure. The key is to express the convolution as a multiplication of polynomials in a specific basis, which will allow the problem to be split into smaller, more efficient sub-problems.
+
+For example, for 
+𝐹
+(
+𝑚
+×
+𝑚
+,
+𝑟
+×
+𝑟
+)
+F(m×m,r×r):
+
+The goal is to reduce the number of multiplications for computing a 
+𝑚
+×
+𝑚
+m×m output using an 
+𝑟
+×
+𝑟
+r×r kernel.
+
+The algorithm factors the polynomial representation of the convolution process. For example, the polynomial 
+𝑝
+(
+𝑧
+)
+p(z) might be chosen as a quadratic or higher-degree polynomial that describes the convolution process.
+
+3. Steps to Compute Matrices 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G
+For 
+𝐹
+(
+2
+×
+2
+,
+4
+×
+4
+)
+F(2×2,4×4), the steps to compute 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G involve the following process:
+
+Determine the Polynomial Basis: The first step is to choose a polynomial basis that represents the convolution. The degree of the polynomial is typically determined by the size of the kernel. For example, for a 
+4
+×
+4
+4×4 kernel, a quartic polynomial would be chosen.
+
+Apply Factorization: The chosen polynomial is then factored to break down the convolution into smaller, more efficient steps. This factorization gives rise to the transformation matrices.
+
+Construct Matrix 
+𝐺
+G: The matrix 
+𝐺
+G is used to transform the convolution kernel into a domain where the convolution can be performed with fewer multiplications. 
+𝐺
+G is derived from the polynomial factorization of the kernel and can be represented as a matrix that encodes the filter's transformation.
+
+Construct Matrix 
+𝐵
+B: The matrix 
+𝐵
+B is used to transform the input tiles into a space where the convolution becomes simpler. 
+𝐵
+B is derived from the same polynomial basis as 
+𝐺
+G and is related to how the input data interacts with the kernel.
+
+Construct Matrix 
+𝐴
+A: The matrix 
+𝐴
+A is used to transform the output back into the original domain after the convolution has been performed. This matrix is usually derived as an inverse transformation based on the factorization of the output polynomial.
+
+Example: Computing 
+𝐹
+(
+2
+×
+2
+,
+4
+×
+4
+)
+F(2×2,4×4) Matrices
+Let's go through the steps for a hypothetical configuration 
+𝐹
+(
+2
+×
+2
+,
+4
+×
+4
+)
+F(2×2,4×4).
+
+1. Polynomial Basis: For a 
+4
+×
+4
+4×4 kernel, a quartic polynomial is chosen, such as:
+
+𝑝
+(
+𝑧
+)
+=
+𝑧
+4
++
+𝑎
+3
+𝑧
+3
++
+𝑎
+2
+𝑧
+2
++
+𝑎
+1
+𝑧
++
+𝑎
+0
+p(z)=z 
+4
+ +a 
+3
+​
+ z 
+3
+ +a 
+2
+​
+ z 
+2
+ +a 
+1
+​
+ z+a 
+0
+​
+ 
+This polynomial describes the filter, and its factorization will lead to the matrices.
+
+2. Factorization: The polynomial is factored into simpler polynomials. For instance, the convolution can be written in terms of factorized polynomials:
+
+𝑝
+(
+𝑧
+)
+=
+(
+𝑧
+−
+𝛼
+1
+)
+(
+𝑧
+−
+𝛼
+2
+)
+(
+𝑧
+−
+𝛼
+3
+)
+(
+𝑧
+−
+𝛼
+4
+)
+p(z)=(z−α 
+1
+​
+ )(z−α 
+2
+​
+ )(z−α 
+3
+​
+ )(z−α 
+4
+​
+ )
+This factorization helps break the convolution into smaller sub-convolutions, each requiring fewer multiplications.
+
+3. Construct Matrix 
+𝐺
+G: Matrix 
+𝐺
+G is constructed based on the factorization of the polynomial that represents the filter. It will be a matrix that encodes the coefficients of the factorized polynomial, and it transforms the kernel into a space where convolutions can be performed with fewer operations.
+
+For example, 
+𝐺
+G might look like:
+
+𝐺
+=
+[
+1
+0
+0
+0
+1
+2
+1
+2
+1
+2
+1
+2
+1
+4
+1
+4
+−
+1
+4
+−
+1
+4
+…
+…
+…
+…
+]
+G= 
+​
+  
+1
+2
+1
+​
+ 
+4
+1
+​
+ 
+…
+​
+  
+0
+2
+1
+​
+ 
+4
+1
+​
+ 
+…
+​
+  
+0
+2
+1
+​
+ 
+− 
+4
+1
+​
+ 
+…
+​
+  
+0
+2
+1
+​
+ 
+− 
+4
+1
+​
+ 
+…
+​
+  
+​
+ 
+4. Construct Matrix 
+𝐵
+B: Matrix 
+𝐵
+B is constructed similarly, based on how the input interacts with the kernel. 
+𝐵
+B represents the transformation of the input tiles into a domain where the convolution is easier.
+
+For example:
+
+𝐵
+=
+[
+1
+0
+0
+1
+1
+−
+1
+…
+…
+]
+B= 
+​
+  
+1
+0
+1
+…
+​
+  
+0
+1
+−1
+…
+​
+  
+​
+ 
+5. Construct Matrix 
+𝐴
+A: Matrix 
+𝐴
+A is constructed to transform the output back into the original domain. It is often the inverse of a Vandermonde matrix that is related to the polynomial basis.
+
+For example:
+
+𝐴
+=
+[
+1
+1
+1
+−
+1
+]
+A=[ 
+1
+1
+​
+  
+1
+−1
+​
+ ]
+Conclusion
+The matrices 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G are derived from the polynomial factorization of the convolution problem. These matrices transform the input data and kernel into a domain where fewer multiplications are required, and they transform the result back into the original domain. For any configuration like 
+𝐹
+(
+2
+×
+2
+,
+4
+×
+4
+)
+F(2×2,4×4), the steps involve choosing a polynomial basis, factoring the polynomial, and constructing the matrices accordingly. The specific values of 
+𝐴
+A, 
+𝐵
+B, and 
+𝐺
+G depend on the degree of the polynomial and the size of the tiles and kernels involved.
